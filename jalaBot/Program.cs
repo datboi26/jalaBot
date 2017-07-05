@@ -16,10 +16,20 @@ namespace jalaBot
 
             client.Log += Log;
 
-            string token = "MzMyMjUxODE0ODkwMTc2NTMz.DD7ZMQ.WXmzXFRYYMegSrEtTNKxmpM92gI"; 
+            client.MessageReceived += MessageReceived;
+
+            string token = ""; 
             await client.LoginAsync(Discord.TokenType.Bot, token);
             await client.StartAsync();            
             await Task.Delay(-1);
+        }
+
+        private async Task MessageReceived(SocketMessage message)
+        {
+            if (message.Content == "!ping")
+            {
+                await message.Channel.SendMessageAsync("Pong!");
+            }
         }
 
         private Task Log(LogMessage msg)
