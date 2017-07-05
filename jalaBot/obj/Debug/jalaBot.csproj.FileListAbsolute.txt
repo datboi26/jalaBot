@@ -9,3 +9,5 @@ c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\D
 c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\Newtonsoft.Json.xml
 c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\obj\Debug\jalaBot.exe
 c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\obj\Debug\jalaBot.pdb
+C:\Users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\DSharpPlus.CommandsNext.dll
+C:\Users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\DSharpPlus.CommandsNext.xml

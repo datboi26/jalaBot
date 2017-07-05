@@ -1719,6 +1719,106 @@
             Received json error
             </summary>
         </member>
+        <member name="T:DSharpPlus.Formatter">
+            <summary>
+            Contains markdown formatting helpers.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Formatter.BlockCode(System.String,System.String)">
+            <summary>
+            Creates a block of code.
+            </summary>
+            <param name="content">Contents of the block.</param>
+            <param name="language">Language to use for highlighting.</param>
+            <returns>Formatted block of code.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.InlineCode(System.String)">
+            <summary>
+            Creates inline code snippet.
+            </summary>
+            <param name="content">Contents of the snippet.</param>
+            <returns>Formatted inline code snippet.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Bold(System.String)">
+            <summary>
+            Creates bold text.
+            </summary>
+            <param name="content">Text to bolden.</param>
+            <returns>Formatted text.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Italic(System.String)">
+            <summary>
+            Creates italicized text.
+            </summary>
+            <param name="content">Text to italicize.</param>
+            <returns>Formatted text.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Underline(System.String)">
+            <summary>
+            Creates underlined text.
+            </summary>
+            <param name="content">Text to underline.</param>
+            <returns>Formatted text.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Strike(System.String)">
+            <summary>
+            Creates strikethrough text.
+            </summary>
+            <param name="content">Text to strikethrough.</param>
+            <returns>Formatted text.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.EmbedlessUrl(System.Uri)">
+            <summary>
+            Creates a URL that won't create a link preview.
+            </summary>
+            <param name="url">Url to prevent from being previewed.</param>
+            <returns>Formatted url.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.MaskedUrl(System.String,System.Uri,System.String)">
+            <summary>
+            Creates a masked link. This link will display as specified text, and alternatively provided alt text. This can only be used in embeds.
+            </summary>
+            <param name="text">Text to display the link as.</param>
+            <param name="url">Url that the link will lead to.</param>
+            <param name="alt_text">Alt text to display on hover.</param>
+            <returns>Formatted url.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Sanitize(System.String)">
+            <summary>
+            Escapes all markdown formatting from specified text.
+            </summary>
+            <param name="text">Text to sanitize.</param>
+            <returns>Sanitized text.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Mention(DSharpPlus.DiscordUser,System.Boolean)">
+            <summary>
+            Creates a mention for specified user or member. Can optionally specify to resolve nicknames.
+            </summary>
+            <param name="user">User to create mention for.</param>
+            <param name="nickname">Whether the mention should resovle nicknames or not.</param>
+            <returns>Formatted mention.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Mention(DSharpPlus.DiscordChannel)">
+            <summary>
+            Creates a mention for specified channel.
+            </summary>
+            <param name="channel">Channel to mention.</param>
+            <returns>Formatted mention.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Mention(DSharpPlus.DiscordRole)">
+            <summary>
+            Creates a mention for specified role.
+            </summary>
+            <param name="role">Role to mention.</param>
+            <returns>Formatted mention.</returns>
+        </member>
+        <member name="M:DSharpPlus.Formatter.Emoji(DSharpPlus.DiscordEmoji)">
+            <summary>
+            Creates a custom emoji string.
+            </summary>
+            <param name="emoji">Emoji to display.</param>
+            <returns>Formatted emoji.</returns>
+        </member>
         <member name="T:DSharpPlus.Net.Abstractions.ClientProperties">
             <summary>
             Represents data for identify payload's client properties.
@@ -2821,33 +2921,53 @@
         </member>
         <member name="M:DSharpPlus.DiscordChannel.SendMessageAsync(System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
             <summary>
-            Posts a message
+            Sends a message to this channel.
             </summary>
-            <param name="content"></param>
-            <param name="tts"></param>
-            <param name="embed"></param>
-            <returns></returns>
+            <param name="content">Content of the message to send.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
         </member>
         <member name="M:DSharpPlus.DiscordChannel.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
             <summary>
-            Posts a file
+            Sends a message containing an attached file to this channel.
             </summary>
-            <param name="file_data"></param>
-            <param name="file_name"></param>
-            <param name="content"></param>
-            <param name="tts"></param>
-            <param name="embed"></param>
-            <returns></returns>
+            <param name="file_data">Stream containing the data to attach to the message as a file.</param>
+            <param name="file_name">Name of the file to attach to the message.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordChannel.SendFileAsync(System.IO.FileStream,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Sends a message containing an attached file to this channel.
+            </summary>
+            <param name="file_data">Stream containing the data to attach to the message as a file.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordChannel.SendFileAsync(System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Sends a message containing an attached file to this channel.
+            </summary>
+            <param name="file_path">Path to the file to be attached to the message.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
         </member>
         <member name="M:DSharpPlus.DiscordChannel.SendMultipleFilesAsync(System.Collections.Generic.Dictionary{System.String,System.IO.Stream},System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
             <summary>
-            Posts a file
+            Sends a message with several attached files to this channel.
             </summary>
-            <param name="files"></param>
-            <param name="content"></param>
-            <param name="tts"></param>
-            <param name="embed"></param>
-            <returns></returns>
+            <param name="files">A filename to data stream mapping.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
         </member>
         <member name="M:DSharpPlus.DiscordChannel.DeleteAsync(System.String)">
             <summary>
@@ -2991,6 +3111,12 @@
             </summary>
             <param name="member"></param>
             <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordChannel.ToString">
+            <summary>
+            Returns a string representation of this channel.
+            </summary>
+            <returns>String representation of this channel.</returns>
         </member>
         <member name="T:DSharpPlus.DiscordConnection">
              <summary>
@@ -3508,15 +3634,16 @@
             Gets the @everyone role for this guild.
             </summary>
         </member>
-        <member name="P:DSharpPlus.DiscordGuild.Presences">
-            <summary>
-            Gets a collection of all presences in this guild.
-            </summary>
-        </member>
         <member name="P:DSharpPlus.DiscordGuild.IsOwner">
             <summary>
             Gets whether the current user is the guild's owner.
             </summary>
+        </member>
+        <member name="M:DSharpPlus.DiscordGuild.ToString">
+            <summary>
+            Returns a string representation of this guild.
+            </summary>
+            <returns>String representation of this guild.</returns>
         </member>
         <member name="T:DSharpPlus.VerificationLevel">
             <summary>
@@ -3822,20 +3949,72 @@
             Gets this member's voice state.
             </summary>
         </member>
-        <member name="P:DSharpPlus.DiscordMember.Presence">
-            <summary>
-            Gets this member's presence.
-            </summary>
-        </member>
-        <member name="P:DSharpPlus.DiscordMember.UserPresence">
-            <summary>
-            Gets this user's presence.
-            </summary>
-        </member>
         <member name="P:DSharpPlus.DiscordMember.Guild">
             <summary>
             Gets the guild of which this member is a part of.
             </summary>
+        </member>
+        <member name="M:DSharpPlus.DiscordMember.CreateDmChannelAsync">
+            <summary>
+            Creates a direct message channel to this member.
+            </summary>
+            <returns>Direct message channel to this member.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMember.SendMessageAsync(System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Sends a direct message to this member. Creates a direct message channel if one does not exist already.
+            </summary>
+            <param name="content">Content of the message to send.</param>
+            <param name="is_tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMember.SendFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Sends a direct message with a file attached to this member. Creates a direct message channel if one does not exist already.
+            </summary>
+            <param name="file_data">Stream containing the data to attach as a file.</param>
+            <param name="file_name">Name of the file to attach.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="is_tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMember.SendFileAsync(System.IO.FileStream,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Sends a direct message with a file attached to this member. Creates a direct message channel if one does not exist already.
+            </summary>
+            <param name="file_data">Stream containing the data to attach as a file.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="is_tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMember.SendFileAsync(System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Sends a direct message with a file attached to this member. Creates a direct message channel if one does not exist already.
+            </summary>
+            <param name="file_path">Path to the file to attach to the message.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="is_tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMember.SendMultipleFilesAsync(System.Collections.Generic.Dictionary{System.String,System.IO.Stream},System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Sends a direct message with several files attached to this member. Creates a direct message channel if one does not exist already.
+            </summary>
+            <param name="files">Dictionary of filename to data stream containing the data to upload as files.</param>
+            <param name="content">Content of the message to send.</param>
+            <param name="is_tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMember.ToString">
+            <summary>
+            Returns a string representation of this member.
+            </summary>
+            <returns>String representation of this member.</returns>
         </member>
         <member name="T:DSharpPlus.DiscordMessage">
             <summary>
@@ -3952,31 +4131,51 @@
             <summary>
             Responds to the message.
             </summary>
-            <param name="content"></param>
-            <param name="tts"></param>
-            <param name="embed"></param>
-            <returns></returns>
+            <param name="content">Message content to respond with.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
         </member>
-        <member name="M:DSharpPlus.DiscordMessage.RespondAsync(System.IO.Stream,System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+        <member name="M:DSharpPlus.DiscordMessage.RespondWithFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
             <summary>
             Responds to the message with a file.
             </summary>
-            <param name="content"></param>
-            <param name="file_data"></param>
-            <param name="file_name"></param>
-            <param name="tts"></param>
-            <param name="embed"></param>
-            <returns></returns>
+            <param name="file_data">Stream containing the data to attach to the message as a file.</param>
+            <param name="file_name">Name of the file to be attached.</param>
+            <param name="content">Message content to respond with.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
         </member>
-        <member name="M:DSharpPlus.DiscordMessage.RespondAsync(System.Collections.Generic.Dictionary{System.String,System.IO.Stream},System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+        <member name="M:DSharpPlus.DiscordMessage.RespondWithFileAsync(System.IO.FileStream,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
             <summary>
-            Responds to the message with multiple files.
+            Responds to the message with a file.
             </summary>
-            <param name="content"></param>
-            <param name="files"></param>
-            <param name="tts"></param>
-            <param name="embed"></param>
-            <returns></returns>
+            <param name="file_data">Stream containing the data to attach to the message as a file.</param>
+            <param name="content">Message content to respond with.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMessage.RespondWithFileAsync(System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Responds to the message with a file.
+            </summary>
+            <param name="file_path">Path to the file to be attached to the message.</param>
+            <param name="content">Message content to respond with.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMessage.RespondWithFilesAsync(System.Collections.Generic.Dictionary{System.String,System.IO.Stream},System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Responds to the message with several files.
+            </summary>
+            <param name="files">A filename to data stream mapping.</param>
+            <param name="content">Message content to respond with.</param>
+            <param name="tts">Whether the message is to be read using TTS.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>The sent message.</returns>
         </member>
         <member name="M:DSharpPlus.DiscordMessage.CreateReactionAsync(DSharpPlus.DiscordEmoji)">
             <summary>
@@ -4014,6 +4213,12 @@
             </summary>
             <param name="reason">Reason for audit logs.</param>
             <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.DiscordMessage.ToString">
+            <summary>
+            Returns a string representation of this message.
+            </summary>
+            <returns>String representation of this message.</returns>
         </member>
         <member name="T:DSharpPlus.MessageType">
             <summary>
@@ -4135,6 +4340,12 @@
             Mentions the role similar to how a client would, if the role is mentionable
             </summary>
         </member>
+        <member name="M:DSharpPlus.DiscordRole.ToString">
+            <summary>
+            Returns a string representation of this role.
+            </summary>
+            <returns>String representation of this role.</returns>
+        </member>
         <member name="T:DSharpPlus.DiscordUser">
             <summary>
             Represents a Discord user.
@@ -4194,6 +4405,12 @@
             <summary>
             Gets this user's presence.
             </summary>
+        </member>
+        <member name="M:DSharpPlus.DiscordUser.ToString">
+            <summary>
+            Returns a string representation of this user.
+            </summary>
+            <returns>String representation of this user.</returns>
         </member>
         <member name="T:DSharpPlus.DiscordVoiceRegion">
             <summary>
