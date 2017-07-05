@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus;
+using DSharpPlus.CommandsNext;
 
 namespace jalaBot
 {
@@ -26,6 +27,16 @@ namespace jalaBot
                 TokenType = TokenType.Bot,
                 UseInternalLogHandler = false
             });
+
+            discord.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Initializing events", DateTime.Now);
+
+            discord.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Initializing MessageCreated", DateTime.Now);
+
+            discord.MessageCreated += async e =>
+            {
+                if (e.Message.Content.ToLower() == "ping")
+                    await e.Message.RespondAsync("pong");
+            };
 
             await discord.ConnectAsync();
 
