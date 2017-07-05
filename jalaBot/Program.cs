@@ -1,48 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Discord;
+using Discord.WebSocket;
+using System;
 using System.Threading.Tasks;
-using DSharpPlus;
 
 namespace jalaBot
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
+            => new Program().MainAsync().GetAwaiter().GetResult();
+
+        public async Task MainAsync()
         {
-            Run().GetAwaiter().GetResult();
+            var client = new DiscordSocketClient();
+
+            client.Log += Log;
+
+            string token = "MzMyMjUxODE0ODkwMTc2NTMz.DD7ZMQ.WXmzXFRYYMegSrEtTNKxmpM92gI"; 
+            await client.LoginAsync(Discord.TokenType.Bot, token);
+            await client.StartAsync();            
+            await Task.Delay(-1);
         }
 
-        public static async Task Run()
+        private Task Log(LogMessage msg)
         {
-            var discord = new DiscordClient(new DiscordConfig
-            {
-                AutoReconnect = true,
-                DiscordBranch = Branch.Stable,
-                LargeThreshold = 250,
-                LogLevel = LogLevel.Critical,
-                Token = "MzMyMjUxODE0ODkwMTc2NTMz.DD7ZMQ.WXmzXFRYYMegSrEtTNKxmpM92gI",
-                TokenType = TokenType.Bot,
-                UseInternalLogHandler = false
-            });
-
-            discord.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Initializing events", DateTime.Now);
-
-            discord.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Initializing MessageCreated", DateTime.Now);      
-
-            discord.DebugLogger.LogMessage(LogLevel.Info, "Bot", "Connecting..", DateTime.Now);
-
-            discord.MessageCreated += async e =>
-            {
-                if (e.Message.Content.ToLower() == "ping")
-                    await e.Message.RespondAsync("pong");
-
-            };
-
-            await discord.ConnectAsync();
-
-            await Task.Delay(-1);
+            Console.WriteLine(msg.ToString());
+            return Task.FromResult(0);
         }
     }
 }
