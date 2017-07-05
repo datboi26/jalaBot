@@ -1,0 +1,11 @@
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\obj\Debug\jalaBot.csprojResolveAssemblyReference.cache
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\jalaBot.exe.config
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\jalaBot.exe
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\jalaBot.pdb
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\DSharpPlus.dll
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\Newtonsoft.Json.dll
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\Sodium.dll
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\DSharpPlus.xml
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\bin\Debug\Newtonsoft.Json.xml
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\obj\Debug\jalaBot.exe
+c:\users\pinea\documents\visual studio 2017\Projects\jalaBot\jalaBot\obj\Debug\jalaBot.pdb
