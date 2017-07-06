@@ -18,7 +18,7 @@ namespace jalaBot
 
             client.MessageReceived += MessageReceived;
 
-            string token = ""; 
+            string token = "MzMyMjUxODE0ODkwMTc2NTMz.DD7ZMQ.WXmzXFRYYMegSrEtTNKxmpM92gI"; 
             await client.LoginAsync(Discord.TokenType.Bot, token);
             await client.StartAsync();            
             await Task.Delay(-1);
